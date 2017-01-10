@@ -1,0 +1,75 @@
+---
+layout: packery_index
+title: Home
+---
+
+<div class="page">
+    <div class="columnwrapper">
+        <div class="news">  
+
+            <div class="masthead">
+                <img src="{{ site.digurl }}images/masthead1.png">
+                <div class="banner">
+                    <nav> 
+                        <div id="i-refresh" class="i-button">Refresh</div>
+                        <div id="navopen" class="i-button i-menu">Menu</div>
+                    </nav>
+                    <h3><a class="arrow" href="about.html" title="about">«</a> The Vandal Voice since 1898! <a class="arrow" href="about.html" title="about">»</a></h3>
+                </div>
+            </div> 
+
+            <div class="smallnav i-nav" id="navdropdown">  
+                <div class="search-sm">
+                    <form method="get" action="http://digital.lib.uidaho.edu/cdm4/results.php">
+                        <input type="hidden" name="CISOOP1" value="all"></input>
+                        <input type="text" name="CISOBOX1" size="23" placeholder=" Search All" class="search"></input>
+                        <input type="hidden" name="CISOFIELD1" value="CISOSEARCHALL"></input>
+                        <input type="hidden" name="CISOOP2" value="exact"></input>
+                        <input type="hidden" name="CISOBOX2" value=""></input>
+                        <input type="hidden" name="CISOFIELD2" value="CISOSEARCHALL"></input>
+                        <input type="hidden" name="CISOOP3" value="any"></input>
+                        <input type="hidden" name="CISOBOX3" value=""></input>
+                        <input type="hidden" name="CISOFIELD3" value="CISOSEARCHALL"></input>
+                        <input type="hidden" name="CISOOP4" value="none"></input>
+                        <input type="hidden" name="CISOBOX4" value=""></input>
+                        <input type="hidden" name="CISOFIELD4" value="CISOSEARCHALL"></input>
+                        <input type="hidden" name="CISOROOT" value="/argonaut"></input>
+                        <input type="submit" value="»" class="searchbutton"></input>
+                    </form>
+                </div>
+                <ul>
+                    <li><a class="navbutton" href="{{site.baseurl}}/about.html">About</a></li>
+                    <li><a class="navbutton" href="{{site.baseurl}}/years.html">Browse Years</a></li>
+                    <li><a class="navbutton" href="http://digital.lib.uidaho.edu/cdm/search/collection/argonaut">Database</a></li>
+                    <li id="i-jumpyear">{% include jumpyear.html %}</li>
+                </ul>
+            </div>
+
+            <div class="headline">
+                <h4>Breaking: Online access to archive of the Argonaut!</h4>
+                <p>This University of Idaho Library digital collection provides access to nearly 6,000 issues of the Argonaut student newspaper dating from 1898 to 2010. To start exploring the historic content check out the randomized highlights featured on this page. Click a highlight to visit the original issue or the Menu button for more options to browse and discover the Argonaut.</p>
+            </div>
+
+            <div class="grid" >
+                
+                <div class="grid-sizer"></div>
+                <div class="gutter-sizer"></div>
+
+                <!-- grid is filled with items from data file argo_highlights.csv, with fields refID,page,type,size,filename. grab the title data from argonaut.csv -->
+                {% assign highlights = site.data.argo_highlights %}
+                {% for highlight in highlights %}
+                    {% assign issue = site.data.argonaut | where: "refID",highlight.refID %}
+                    {% assign year = issue | map: "title" %}
+
+                <div onclick="yearClick(this)" class="grid-item grid-{{ highlight.size }}">
+                    <a href="http://digital.lib.uidaho.edu/cdm/ref/collection/argonaut/id/{{ highlight.refID }}" target="_blank" class="reveal" title="view item">{{ year }}</a>
+                    <div class="highlight">
+                        <img class="himg" src="{{ site.digurl }}images/highlights/{{ highlight.filename }}" >
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</div>
