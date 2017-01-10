@@ -1,0 +1,79 @@
+/* jump to year dropdown menu */
+.yearsmenu {
+    position: absolute; top:($titleh-lg + 1); right:$title-padding-lg;
+}
+#openyears {
+    a {  
+        cursor: pointer;
+        background-color:$white-back;
+        border-color:$c-grey;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border-style: none solid solid solid;
+        border-width: 0px 5px 5px 5px;
+        padding:3px 7px 0px 7px;
+        margin:0px 10px;
+        color:$c-black;
+        text-decoration:none;
+        box-shadow:$shadow-sm;
+    }
+    a:hover {
+        background:$title-background;  
+        color:$c-white;
+    }
+} 
+.years {
+    /* display none is toggled by onclick js */
+    display: none;
+    position: absolute; right:10px; top: 0px;
+    z-index: 99;
+    width:820px;
+    background-color: $c-light-grey; 
+    box-shadow:$shadow-lg;    
+    border-radius: 5px;
+    font-size:22px;
+    padding: 10px;
+    ul { 
+        margin-bottom: 6px;
+    }
+    li { 
+        min-width:75px;
+        display:inline-block;
+        vertical-align:middle;
+        a {
+            color: $c-black;
+            padding: 5px 16px;  
+        }
+        a:hover {
+            background-color: $c-blue;
+            border-radius:5px;
+        }
+    }
+    .yearsbutton {
+    background-color: $c-blue;
+    color: $c-white;
+    box-shadow:$shadow-sm;
+    border-radius: 5px;      
+    }
+}
+.yearstitle {
+    background-color:$c-blue;
+    box-shadow: $shadow-sm;
+    border-radius: 5px;
+    padding: 8px 8px;
+    margin-bottom:10px;
+    h3 {
+        font-size: 22px;
+        color:$c-white;
+    }  
+}
+#closeyears { 
+    font-size:18px;
+    color:$c-white;
+    padding: 4px 16px;
+    float:right;
+    cursor:pointer;
+    background-color: $c-grey;
+    border-radius:5px;
+}
+

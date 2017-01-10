@@ -1,0 +1,47 @@
+/* Reset some basic elements */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+    margin: 0;
+    padding: 0;
+}
+*, *:before, *:after {
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+/* Base styling */
+body {
+    font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+    color: $text-color;
+    background: $main-background;
+}
+/* Images */
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: $base-font-weight;
+}
+
+/* media toggle hide */
+.hide-small { display:none; }
+@media (min-width: $mediumscreen){
+    .hide-small{display:block;/*initial;*/}
+    .hide-medium{display:none;}
+}
+@media (min-width: $largescreen){
+    .hide-small{display:block;/*initial;*/}
+    .hide-large{display:none;}
+}
+
+/* Clearfix, use with: @extend %clearfix; */
+%clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}

@@ -1,0 +1,215 @@
+/* campus collection header base */
+/* digital initiatives logo */
+.digitalheader {
+    @extend %clearfix;
+}
+.dilogo {
+    float:right;
+    width:45%;
+}
+.libraryheader {
+    padding-left:$title-padding-sm;
+    margin-bottom:-5px;	 
+    a {  
+        font-size:1.35rem;
+        color: $c-black;
+        text-decoration: none;
+        font-weight:bold;
+        line-height: 1em;
+    }
+}
+
+/* title bar */
+.titlebar { 
+    height:$titleh-sm;
+    background:$title-background; 
+    position:relative;
+    margin:0;
+    color: $c-white;
+    padding: 0 $title-padding-sm;
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.3);    
+    ul { list-style-type: none;}
+    a {text-decoration: none;}
+}
+.title {
+    position:absolute; top: 5px;
+    line-height:1; 
+    color:$c-white;
+    h1 {font-size: 60px; }
+    h2 {font-size: 16px;}
+    li {display:inline-block;}
+}    
+
+/* small nav */
+.navbox {
+    text-align: center;  
+    svg {
+        width:40px;height:40px;
+        border: 1px solid $c-white;
+        border-radius: 5px;
+        padding: 3px;
+        float: right;
+        margin-top: 10px;
+        path {fill:$c-white;}
+    } 
+}
+.smallnav {
+    display:none;
+    font-size:18px;
+    text-align:right;
+    background-color:$c-light-grey;
+    padding: 10px $title-padding-sm;
+    margin-top:0;
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.3);     
+    li {
+        list-style-type: none;
+        margin-top:10px;
+        margin-left:1px;
+        display:inline-block;
+    }
+}
+.navbutton {
+    text-decoration: none;
+    padding: 5px 5px;
+    border-radius: 5px;
+    color: $c-white;
+    background-color:$c-blue;
+    box-shadow: $shadow-sm;
+}
+/* .show {display:block;} necessary for js nav dropdown, included at _end.scss to ensure cascading */
+/* small nav search */
+.search-sm form {   
+        input {
+            font-family: 'Allan', Helvetica, Rockwell,cursive;
+            font-size:18px;
+            padding: 3px 6px;
+            border-radius: 5px;
+            display:inline;    
+        }
+        .searchbutton {
+            color:$c-white;
+            background-color: $c-blue;
+            margin-left:5px;
+            cursor: pointer;
+        } 
+    }
+/* subtitle */
+.subtitle {
+    padding: 0 ($title-padding-sm * 2);
+    p { 
+        font-size:16px;
+        text-transform:uppercase;
+    }
+}    
+
+/* media for medium screens */
+@include media-query($mediumscreen) {
+    /* header */
+    .dilogo {
+        float:none;
+        height:30px;
+        padding-left:5px;
+    } 
+    .libraryheader { 
+        padding-left:$title-padding-sm;
+        a {  
+            font-size:32px;
+        }
+    }
+    /* title bar */
+    .titlebar {
+        height:$titleh-lg;
+        padding: 0 $title-padding-sm;
+        }
+    .title {
+        h1 {font-size:80px;}
+        h2 {
+            font-size:36px;
+            line-height: .9;
+            margin-left:20px;
+        }
+    }
+    .subtitle {
+        padding:0 $title-padding-sm;
+        p { 
+            font-size:26px;
+            text-transform:uppercase;
+        }
+    } 
+    .navbox {
+        svg {
+            width:56px;height:56px;
+            border: 2px solid $c-white;
+            padding: 4px;
+            margin-top: 10px;
+        } 
+    }
+    .smallnav {
+        font-size: 22px;
+    }
+    .navbutton {
+        margin-left:10px;
+        }
+    .search-sm form {   
+        input {
+            font-size:22px; 
+        }
+    }
+
+}    
+    
+/* media for large screens */
+@include media-query($largescreen) {
+    .dilogo {
+        margin-bottom:10px;
+        padding-left:20px;
+        }
+    .libraryheader {
+        padding-top:8px;
+        padding-left:$title-padding-lg;
+        }
+    .titlebar {
+        padding: 0 $title-padding-lg;
+    }
+    /* top navigation */
+    .topnav {
+        position:absolute;bottom:($titleh-lg - 2);right:$title-padding-lg;
+        a {
+            background-color:$white-back;
+            border-color:$c-grey;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border-style: solid solid none solid;
+            border-width: 5px 5px 0px 5px;
+            padding:3px 7px 0px 7px;
+            margin:0px 10px;
+            color:$c-black;
+            text-decoration:none;
+         }
+        a:hover {
+            background:$title-background;  
+            color:$c-white;
+        }
+    }
+    /* search box */
+    .search form {
+        float: right;
+        margin-top:20px; 
+        input {
+            font-size:20px;
+            line-height:1.5em;
+            border-radius: 5px;
+            display:inline;
+            font-family: 'Allan', Helvetica, Rockwell,cursive;
+        }    
+        .searchbutton {
+            color:$c-white;
+            background-color:$c-blue;
+            margin-left:10px;
+        } 
+    }
+    .subtitle {
+            padding:0 $title-padding-lg;
+    }
+    
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+  {% include head.html %}
+
+  </head>
+
+  <body>
+
+    {% include header.html %}
+
+    <div class="contentwrapper">
+
+        {% assign year = page.title %}
+        {% if year == '1898' %}
+            {% assign prevyear = '/years.html' | prepend: site.baseurl %}
+        {% else %}
+            {% assign prevyear = year | minus:1 | append: '.html' %}
+        {% endif %}
+        {% if year == '2010' %}
+            {% assign nextyear = '/years.html' | prepend: site.baseurl %}
+        {% else %}
+            {% assign nextyear = year | plus:1 | append: '.html' %}
+        {% endif %}
+        <div class="page">
+
+            <img class="year-masthead" src="{{ site.digurl }}images/years/argonaut{{year}}.jpg" alt="Argonaut {{year}}">
+
+            <div>
+                <h3 class="subpagetitle"><a class="arrow" href="{{prevyear}}" title="previous">«</a> Issues from {{year}} <a class="arrow" href="{{nextyear}}" title="next">»</a></h3> 
+            </div>
+                <!-- creates year pages at years/argonaut{{ year }}.html from data file site.data.argonaut that has fields: title,date,year,description,subject,id,refID   
+                -->
+            <div class="columnwrapper">
+                <!-- issue table: -->
+                <div id="issueTable">
+                <input class="search" placeholder="Simple search..." size="18" >
+                    <table>
+                        <thead>
+                            <tr>
+                                <th class="thumb"> </th>
+                                <th class="sort" data-sort="issue-date">Date</th>
+                                <th class="subject">Subjects</th>
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+                            {% assign issues = site.data.argonaut | where: "year", year %}
+                            {% for issue in issues %}
+                            <tr>
+                                <td class="issue-thumb"><a href="http://digital.lib.uidaho.edu/cdm/pageflip/collection/argonaut/id/{{ issue.refID }}/type/singleitem/pftype/pdf" target="_blank" title="flip viewer"><img src="{{ site.digurl }}images/thumbs/{{ issue.refID }}.jpg" alt="issue thumbnail"><p class="pageflip">view</p></a></td>
+                                <td class="issue-date" style="display:none">{{ issue.date }}</td>
+                                <td class="issue-title"><a href="http://digital.lib.uidaho.edu/cdm/ref/collection/argonaut/id/{{ issue.refID }}" target="_blank" title="database item">{{ issue.title }}</a></td>
+                                <td class="issue-subject">{{ issue.subject }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    
+    {% include footer.html %}
+    
+    <script>
+      {% include js/allCollections.js %}
+      {% include js/navbar.js %}
+    </script>
+
+    <!-- add list.js http://www.listjs.com/ @javve -->
+    <script src="{{ site.baseurl }}/js/list.min.js"></script>
+    <script> 
+        var options = {
+            valueNames: [ 'issue-date', 'issue-title', 'issue-subject' ]
+        };
+        var issueList = new List('issueTable', options);
+    </script>
+    
+    {% include analytics.html %}
+
+  </body>
+
+</html>    

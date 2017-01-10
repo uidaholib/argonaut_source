@@ -1,0 +1,114 @@
+.page {
+    margin: 0 auto 15px;
+    padding: 0 $page-padding-sm $page-padding-sm;
+    background-color:$white-back; 
+    border-radius: 5px;
+    box-shadow: $shadow-lg;
+    width: $content-width-sm;
+    max-width: $max-width;
+    p { font-family: $content-font;}
+}
+.pageheader {
+    padding: 10px 15px 5px;
+}
+.columnwrapper {
+    width: 98%;
+    margin: 0px auto;
+    padding:0;
+    display:block;
+    @extend %clearfix;
+}
+.subpagetitle {
+    font-size: 30px;
+    line-height: 0.8;
+    a {
+        font-size:40px;
+        text-decoration: none;
+        color:$c-blue;
+        text-shadow: $shadow-text;
+    } 
+}
+.pagebutton {
+    li {
+        list-style:none;
+        background-color:$c-blue;
+        box-shadow:$shadow-sm;
+        border-radius:5px;
+        margin: 15px;
+        padding: 15px;
+    }
+    a {
+        text-decoration:none;
+        color:$c-white;
+    }
+}
+/* about page */
+.cover { 
+    text-align: center;
+    padding: 5%;
+    margin: 5%;
+    background: $c-blue;
+    border-radius: 5px;
+    a { color: $c-white; }
+}
+.intro { 
+    margin-left: 2%;
+    h4 { 
+        font-size: 20px; 
+        margin-top: 5px; 
+        }
+    p { margin: 0 0 10px; }
+    img { padding: 5%;}
+}
+blockquote {
+  font-family: $base-font-family;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5%;
+  padding-left: 2%;
+  border-left: 3px solid $c-light-grey;
+} 
+a { 
+    color: $link-color;
+    text-decoration: none; 
+    }
+
+/* media for medium screens */
+@include media-query($mediumscreen){
+    .pageheader {
+        padding: 20px 15px 5px 25px;
+    }
+    .subpagetitle {
+        font-size: 55px;
+        a {
+            font-size:65px;
+        }
+    }
+    .page {
+        padding: 5px $page-padding-lg 15px;
+    }
+    .covers { 
+        float:right;
+        width: 25%;
+    }
+    .intro { 
+        float:left;
+        width: 60%;
+        h4 { 
+            font-size: 30px;
+            margin-top: 10px; 
+            }
+    }
+}
+/* media for large screens */
+@include media-query($largescreen){ 
+    .page {
+        width: $content-width-lg;
+    }
+    .column2 {
+        float:left;
+        width:50%;
+        padding: 0 5px;
+    }
+
+}

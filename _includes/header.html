@@ -1,0 +1,106 @@
+<header class="site-header">
+
+<div class="digitalheader">
+
+  <div class="dilogo">
+    <a href="http://www.lib.uidaho.edu/digital/index.html" title="University of Idaho Library Digital Initiatives" >
+      <img src="http://www.lib.uidaho.edu/digital/bannerlogo_gray_bottom_DM.png" alt="University of Idaho Library Digital Initiatives" >
+     </a> 
+  </div>
+
+  {% include allcollectionsOld.html %}
+
+</div>
+
+<div class="libraryheader" >
+  <a class="hide-small" href="http://www.lib.uidaho.edu/">The University of Idaho Library's </a>
+  <a class="hide-medium hide-large" href="http://www.lib.uidaho.edu/">UIdaho Library's</a>
+</div>
+  
+<div class="titlebar">
+
+  <a class="titlelink" href="{{site.baseurl}}/index.html">
+    <ul class="title">
+      <li><h1>Argonaut</h1></li>
+      <li><h2>Student <br>Newspaper</h2></li>
+    </ul>
+  </a>
+
+  <nav>
+    
+    <a href="#void" class="navbox hide-large" id="navopen">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg> 
+    </a>
+
+    <div class="largenav hide-small hide-medium">
+      
+      <div class="search">
+        <form method="get" action="http://digital.lib.uidaho.edu/cdm4/results.php">
+          <input type="hidden" name="CISOOP1" value="all"></input>
+          <input type="text" name="CISOBOX1" size="23" class="search"></input>
+          <input type="hidden" name="CISOFIELD1" value="CISOSEARCHALL"></input>
+          <input type="hidden" name="CISOOP2" value="exaxt"></input>
+          <input type="hidden" name="CISOBOX2" value=""></input>
+          <input type="hidden" name="CISOFIELD2" value="CISOSEARCHALL"></input>
+          <input type="hidden" name="CISOOP3" value="any"></input>
+          <input type="hidden" name="CISOBOX3" value=""></input>
+          <input type="hidden" name="CISOFIELD3" value="CISOSEARCHALL"></input>
+          <input type="hidden" name="CISOOP4" value="none"></input>
+          <input type="hidden" name="CISOBOX4" value=""></input>
+          <input type="hidden" name="CISOFIELD4" value="CISOSEARCHALL"></input>
+          <input type="hidden" name="CISOROOT" value="/argonaut"></input>
+          <input type="submit" value="Search All" class="searchbutton"></input>
+        </form>
+      </div>
+      
+      <div class="topnav">
+        <a href="{{site.baseurl}}/about.html">About</a>
+        <a href="{{site.baseurl}}/years.html">Browse</a>
+        <a href="http://digital.lib.uidaho.edu/cdm/search/collection/argonaut">Database</a>
+
+      </div>
+
+      {%include jumpyear.html %}
+      
+    </div>
+   
+   </nav>
+
+</div>  
+
+<div class="smallnav" id="navdropdown">   
+  <div class="search-sm">
+    <form method="get" action="http://digital.lib.uidaho.edu/cdm4/results.php">
+      <input type="hidden" name="CISOOP1" value="all"></input>
+      <input type="text" name="CISOBOX1" size="23" placeholder=" Search All" class="search"></input>
+      <input type="hidden" name="CISOFIELD1" value="CISOSEARCHALL"></input>
+      <input type="hidden" name="CISOOP2" value="exaxt"></input>
+      <input type="hidden" name="CISOBOX2" value=""></input>
+      <input type="hidden" name="CISOFIELD2" value="CISOSEARCHALL"></input>
+      <input type="hidden" name="CISOOP3" value="any"></input>
+      <input type="hidden" name="CISOBOX3" value=""></input>
+      <input type="hidden" name="CISOFIELD3" value="CISOSEARCHALL"></input>
+      <input type="hidden" name="CISOOP4" value="none"></input>
+      <input type="hidden" name="CISOBOX4" value=""></input>
+      <input type="hidden" name="CISOFIELD4" value="CISOSEARCHALL"></input>
+      <input type="hidden" name="CISOROOT" value="/argonaut"></input>
+      <input type="submit" value="»" class="searchbutton"></input>
+    </form>
+  </div>
+  <ul>
+    <li><a class="navbutton" href="{{site.baseurl}}/about.html">About</a></li>
+    <li><a class="navbutton" href="{{site.baseurl}}/years.html">Browse Years</a></li>
+    <li><a class="navbutton"  href="digital.lib.uidaho.edu/cdm/search/collection/argonaut">Database</a></li>
+  </ul>
+  
+</div>
+   
+<div class="subtitle"> 
+  <p>Digital Colletion</p>
+</div>
+
+</header>

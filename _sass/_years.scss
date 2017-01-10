@@ -1,0 +1,103 @@
+/* main browse years page */
+.yearslist {
+    list-style: none;
+    width: 99%;
+    margin: 0px auto;
+    padding:0;
+    text-align: center;    
+    li {
+       display: inline-block;
+       padding: 10px;
+       margin: 3px;
+       background-color: $c-blue;
+       border-radius: 5px;
+       box-shadow:$shadow-lg;
+       
+       a { 
+           text-decoration: none;
+           font-size:22px;
+           color:$c-white;
+       }
+    }
+}
+/* individual year pages */
+.year-masthead { width: 100%;}
+#issueTable {
+  font-family: $content-font;
+    input { float:right;}
+    table { 
+        border-collapse: collapse; 
+        width: 100%;
+    }
+    th { 
+        border-bottom: solid 2px $c-black;
+        text-align:left;
+    }
+    tr:nth-child(even) {
+    background-color: #eee;
+    }
+    tr:nth-child(odd) {
+   background-color:#fff;
+   }
+    td {
+    padding:5px; 
+    border-bottom:solid 1px $c-light-grey;
+    }
+}
+.pageflip {
+  position: relative;
+  bottom: 25px;
+  left: 5px;
+}
+.issue-subject { 
+  width: 50%;
+  font-size: 12px;
+  }
+.issue-thumb { width: 25%;}
+.issue-title { width: 25%;}
+.sort { cursor: pointer; }
+.sort:focus {
+  outline:none;
+}
+.sort:after {
+  display:inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
+.sort.asc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+  content:"";
+  position: relative;
+  top:4px;
+  right:-5px;
+}
+.sort.desc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid black;
+  content:"";
+  position: relative;
+  top:-4px;
+  right:-5px;
+}
+@include media-query($mediumscreen){
+  .issue-subject { 
+    width: 75%;
+    font-size: 16px;
+    }
+  .issue-thumb { width: 10%;}
+  .issue-title { width: 15%;}
+}
