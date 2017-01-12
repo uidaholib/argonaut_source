@@ -48,7 +48,9 @@
                             {% assign issues = site.data.argonaut | where: "year", year %}
                             {% for issue in issues %}
                             <tr>
-                                <td class="issue-thumb"><a href="http://digital.lib.uidaho.edu/cdm/pageflip/collection/argonaut/id/{{ issue.refID }}/type/singleitem/pftype/pdf" target="_blank" title="flip viewer"><img src="{{ site.digurl }}images/thumbs/{{ issue.refID }}.jpg" alt="issue thumbnail"><p class="pageflip">view</p></a></td>
+                                <td class="issue-thumb">
+                                    <div class="view-link"><a href="http://digital.lib.uidaho.edu/cdm/pageflip/collection/argonaut/id/{{ issue.refID }}/type/singleitem/pftype/pdf" target="_blank" title="flip viewer"><img src="{{ site.digurl }}images/thumbs/{{ issue.refID }}.jpg" alt="issue thumbnail"><p class="pageflip">view</p></a></div>
+                                </td>
                                 <td class="issue-date" style="display:none">{{ issue.date }}</td>
                                 <td class="issue-title"><a href="http://digital.lib.uidaho.edu/cdm/ref/collection/argonaut/id/{{ issue.refID }}" target="_blank" title="database item">{{ issue.title }}</a></td>
                                 <td class="issue-subject">{{ issue.subject }}</td>

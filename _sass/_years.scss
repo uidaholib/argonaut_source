@@ -12,7 +12,6 @@
        background-color: $c-blue;
        border-radius: 5px;
        box-shadow:$shadow-lg;
-       
        a { 
            text-decoration: none;
            font-size:22px;
@@ -44,16 +43,28 @@
     border-bottom:solid 1px $c-light-grey;
     }
 }
-.pageflip {
-  position: relative;
-  bottom: 25px;
-  left: 5px;
-}
 .issue-subject { 
   width: 50%;
   font-size: 12px;
   }
-.issue-thumb { width: 25%;}
+.issue-thumb { 
+  width: 25%;
+  img { width: 100%;}
+  }
+.view-link {
+  position: relative;
+}
+.pageflip {
+  position: absolute;
+  bottom: 15%;
+  left:50%;
+  margin-right: -50%;
+  transform: translate(-50%, 0);
+  color:white;
+  background: $c-blue;
+  padding: 0 3px;
+  border-radius: 5px;
+}
 .issue-title { width: 25%;}
 .sort { cursor: pointer; }
 .sort:focus {
@@ -99,5 +110,6 @@
     font-size: 16px;
     }
   .issue-thumb { width: 10%;}
+  .pageflip { padding: 2px 8px; }
   .issue-title { width: 15%;}
 }

@@ -61,12 +61,12 @@
 
     }
     .yearsmenu {
-        position: initial;
+        position: relative;
+        top: initial;
+        right: initial;
     }
     .years {
        top: initial;
-       right: inherit;// 8%;
-       margin:10px;
        text-align: left; 
     }
     li {
@@ -140,9 +140,13 @@
 .grid-sm { width:24%;}
 .grid img { width:100%;}
 /* style title-date to show on click */
+.highlight {
+    position: relative;
+}
 .reveal {
     position: absolute;
-    top:10%;
+    top:50%;
+    transform: translate(0, -50%);
     margin: 0;
     display:none;
     width: 100%;  
@@ -175,6 +179,6 @@
     .reveal { 
         font-size: 24px;
         padding: 25px 0;
-        top: 20%;
+       // top: 20%;
     }
 }
