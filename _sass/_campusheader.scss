@@ -18,7 +18,6 @@
         line-height: 1em;
     }
 }
-
 /* title bar */
 .titlebar { 
     height:$titleh-sm;
@@ -38,8 +37,7 @@
     h1 {font-size: 60px; }
     h2 {font-size: 16px;}
     li {display:inline-block;}
-}    
-
+}
 /* small nav */
 .navbox {
     text-align: center;  
@@ -80,7 +78,7 @@
 /* small nav search */
 .search-sm form {   
         input {
-            font-family: 'Allan', Helvetica, Rockwell,cursive;
+            font-family: $base-font-family;
             font-size:18px;
             padding: 3px 6px;
             border-radius: 5px;
@@ -100,8 +98,7 @@
         font-size:16px;
         text-transform:uppercase;
     }
-}    
-
+}
 /* media for medium screens */
 @include media-query($mediumscreen) {
     /* header */
@@ -155,9 +152,7 @@
             font-size:22px; 
         }
     }
-
 }    
-    
 /* media for large screens */
 @include media-query($largescreen) {
     .dilogo {
@@ -200,7 +195,7 @@
             line-height:1.5em;
             border-radius: 5px;
             display:inline;
-            font-family: 'Allan', Helvetica, Rockwell,cursive;
+            font-family: $base-font-family;
         }    
         .searchbutton {
             color:$c-white;

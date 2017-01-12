@@ -16,7 +16,7 @@
     padding: 5px;
     h3 { 
         font-size: 20px;
-        line-height: .75;
+        line-height: 1.2; //.75;
      }
     .arrow { 
         font-size: 30px;
@@ -56,7 +56,7 @@
             border-style: none none none none;
             color: $c-white;
             background-color:$c-blue;
-            margin-left: 0 0 0 10px;
+            margin: 0 0 0 10px;
         }
 
     }
@@ -65,7 +65,8 @@
     }
     .years {
        top: initial;
-       right: 8%;
+       right: inherit;// 8%;
+       margin:10px;
        text-align: left; 
     }
     li {
@@ -76,9 +77,9 @@
 /* headline story */
 .headline {
     margin: 10px 0;
-    border: solid 1px $c-light-grey;
+    border: solid 2px $devin-grey;
     border-radius: 2px;
-    padding: 2px 3px;
+    padding: 3px 5px;
     h4 {
         font-size: 14px;
     }
@@ -94,7 +95,7 @@
         padding: 15px;
         h3 { 
             font-size: 55px;
-            //line-height: 1.5; 
+            line-height: .75; 
         }
         .arrow { font-size: 65px; }
     }
@@ -104,6 +105,7 @@
         //margin-top: 18px; 
     }
     .headline {
+        padding: 6px 10px;
         h4 {
             font-size: 20px;
         }
