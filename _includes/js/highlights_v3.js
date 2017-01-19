@@ -1,18 +1,25 @@
 /* get highlights JSON file */
+//loadHighlights("http://127.0.0.1:4000/digital/argonaut/js/test.json");
+//var grid = document.getElementById("grid");
+var grid = document.querySelector('.grid');
+var allHighlights = [];
 loadHighlights("http://127.0.0.1:4000/digital/argonaut/js/test.json");
 function loadHighlights(url) {
   var xhttp;
   xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      makeGrid(this);
+      parseHighlights(this);
     }
   };
   xhttp.open("GET", url, true);
   xhttp.send();
 };
-/* JSON looks like: { "highlights" : [ {% for highlight in highlights %}{% assign issue = site.data.argonaut | where: "refID",highlight.refID %}{% assign year = issue | map: "title" %}{ "refID" : "{{ highlight.refID }}", "size" : "{{ highlight.size }}", "filename" : "{{ highlight.filename }}", "title" : "{{ year }}" }{% if forloop.last == false %}, {% endif %}{% endfor %} ]} */
-
+function parseHighlights(xhttp) {
+  var allObjects = JSON.parse(xhttp.responseText);
+  allHighlights = allObjects.highlights;
+  makeGrid(allHighlights);
+};
 /* cool ES6 template string way */
 function test2(xhttp) {
 var myObj = JSON.parse(xhttp.responseText);
@@ -30,23 +37,29 @@ ${some.map(highlight =>
 `; 
 document.getElementById("demo").innerHTML = markup;
 };
-/* uglier more compatible way */
-function makeGrid(xhttp) {
+/* create highlight grid */
+function makeGrid(array) {
   var i;
-  var myObj = JSON.parse(xhttp.responseText);
-  shuffle(myObj.highlights);
-  var x = document.getElementById("grid");
-  for (i = 0; i < 12; i++) {
-      var item = "<div onclick=\"yearClick(this)\" class=\"grid-item grid-" + myObj.highlights[i].size + "\"> <div class=\"highlight\"><img class=\"himg\" src=\"http://www.lib.uidaho.edu/digital/argonaut/images/highlights/" + myObj.highlights[i].filename +"\" ><a href=\"http://digital.lib.uidaho.edu/cdm/ref/collection/argonaut/id/" + myObj.highlights[i].refID + "\" target=\"_blank\" class=\"reveal\" title=\"view item\">" + myObj.highlights[i].title + "</a></div></div>";
-      x.innerHTML += item;
+  shuffle(array);
+  while (grid.hasChildNodes()) {
+    grid.removeChild(grid.lastChild);
   };
+  grid.innerHTML = "<div class=\"gutter-sizer\"></div>"
+  for (i = 0; i < 12; i++) {
+      var item = "<div onclick=\"yearClick(this)\" class=\"grid-item grid-" + array[i].size + "\"> <div class=\"highlight\"><img class=\"himg\" src=\"http://www.lib.uidaho.edu/digital/argonaut/images/highlights/" + array[i].filename +"\" ><a href=\"http://digital.lib.uidaho.edu/cdm/ref/collection/argonaut/id/" + array[i].refID + "\" target=\"_blank\" class=\"reveal\" title=\"view item\">" + array[i].title + "</a></div></div>";
+      grid.innerHTML += item;
+  };
+  /* initialize Packery, metafizzy, http://packery.metafizzy.co/ */
+  var pckry = new Packery( grid, {
+    itemSelector: '.grid-item',
+    gutter: '.gutter-sizer',
+    percentPosition: true
+  });
+  /* wait for images to load before running layout imagesLoaded, desandro, http://imagesloaded.desandro.com/ */
+  imagesLoaded( grid ).on( 'progress', function() {
+    pckry.layout();
+  });
 };
-
-var node = document.createElement("LI");                 // Create a <li> node
-var textnode = document.createTextNode("Water");         // Create a text node
-node.appendChild(textnode);                              // Append the text to <li>
-document.getElementById("myList").appendChild(node);
-
 /* Fisher-Yates shuffle https://bost.ocks.org/mike/shuffle/ */
 function shuffle(array) {
   var m = array.length, t, i;
@@ -58,9 +71,16 @@ function shuffle(array) {
   }
   return array;
 };
-/*
-var x = document.getElementById("grid");
-element.appendChild()
-element.removeChild()
-var list = document.getElementById("myList");   // Get the <ul> element with id="myList"
-list.removeChild(list.childNodes[0]); */
+/* click event for highlights */
+function yearClick(elmnt){
+    var title = elmnt.querySelector(".reveal");
+    var imagediv = elmnt.querySelector(".highlight");
+    var himage = elmnt.querySelector(".himg"); 
+    elmnt.style.border = (elmnt.style.border == "4px solid rgb(120, 154, 161)") ? "none" : "4px solid rgb(120, 154, 161)";
+    title.style.display =(title.style.display == "block") ? "none" : "block";
+    himage.style.opacity = (himage.style.opacity == "0.4") ? "1" : "0.4";
+};
+/* add refresh button */
+document.getElementById("i-refresh").onclick = function () { 
+  makeGrid(allHighlights);
+};
