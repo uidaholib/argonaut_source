@@ -1,50 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
+---
+layout: base
+---
+<header class="site-header">
 
-  {% include head.html %}
-  
-  </head>
+  <div class="digitalheader">
 
-  <body>
-    <header class="site-header">
-
-      <div class="digitalheader">
-
-        <div class="dilogo">
-          <a href="http://www.lib.uidaho.edu/digital/index.html" title="University of Idaho Library Digital Initiatives" >
-            <img src="http://www.lib.uidaho.edu/digital/bannerlogo_gray_bottom_DM.png" alt="University of Idaho Library Digital Initiatives" >
-          </a> 
-        </div>
-
-        {% include allcollectionsOld.html %}
-
-      </div>
-    </header>
-
-    <div class="contentwrapper">
-      
-      {{ content }}
-
+    <div class="dilogo">
+      <a href="http://www.lib.uidaho.edu/digital/index.html" title="University of Idaho Library Digital Initiatives" >
+        <img src="http://www.lib.uidaho.edu/digital/bannerlogo_gray_bottom_DM.png" alt="University of Idaho Library Digital Initiatives" >
+      </a> 
     </div>
 
-    {% include footer.html %}
+    {% include allcollectionsOld.html %}
 
-    <script src="js/packery.pkgd.min.js"></script>
+  </div>
+</header>
 
-    <script src="js/imagesloaded.pkgd.min.js"></script>
+<div class="contentwrapper">
+  
+  {{ content }}
 
-    <script>
-        {% include js/highlights.js %}
-    </script>
+</div>
 
-    <script>
-        {% include js/allCollections.js %}
-        {% include js/navbar.js %}
-    </script>
-    
-    {% include analytics.html %}
+{% include footer.html %}
 
-  </body>
+<script src="js/packery.pkgd.min.js"></script>
 
-</html>
+<script src="js/imagesloaded.pkgd.min.js"></script>
+
+<script>
+    {% include js/highlights.js %}
+</script>
+
+<script>
+    {% include js/allCollections.js %}
+    {% include js/navbar.js %}
+</script>

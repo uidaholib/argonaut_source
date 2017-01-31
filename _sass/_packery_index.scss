@@ -80,6 +80,7 @@
     border: solid 2px $devin-grey;
     border-radius: 2px;
     padding: 3px 5px;
+    text-align: center;
     h4 {
         font-size: 14px;
     }
@@ -107,7 +108,7 @@
     .headline {
         padding: 6px 10px;
         h4 {
-            font-size: 20px;
+            font-size: 24px;
         }
         p {
             font-size: 16px;
@@ -130,7 +131,6 @@
 .grid-item {
     float: left;
     width: 24%;
-    display:none;
     border-radius: 6px;
     cursor: pointer;
 }
