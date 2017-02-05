@@ -15,7 +15,7 @@ $content-font: Georgia, "Bitstream Charter", "URW Bookman L", serif;
 $text-color: #111;
 $link-color: #B06048; /*#79283F; #B06048*/
 
-$main-background: url("{{ site.digurl }}/images/bg-1.jpg") repeat scroll 0 0;
+$main-background: url("{{ site.digurl }}images/bg-2.jpg") repeat scroll 0 0;
 $white-back: #fff; /* #FEFEFA #fbf6d9 #f9edd3 #fbf9e0 #fdfdfd*/
 
 /* drop shadows */
@@ -24,7 +24,7 @@ $shadow-lg: 0px 8px 16px 0px rgba(0,0,0,0.6);
 $shadow-text: 1px 2px 3px rgba(0,0,0,0.3);
  
 /* header varibles */
-$title-background: url("{{ site.digurl }}/images/body-home.png") repeat scroll 0 0;
+$title-background: url("{{ site.digurl }}images/body-home2.jpg") repeat scroll 0 0;
 $titleh-sm: 60px; 
 $titleh-lg: 76px;
 $title-padding-sm: 3%;
