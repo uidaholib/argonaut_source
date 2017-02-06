@@ -13,10 +13,10 @@ $base-line-height: 1.5;
 $content-font: Georgia, "Bitstream Charter", "URW Bookman L", serif;
 
 $text-color: #111;
-$link-color: #B06048; /*#79283F; #B06048*/
+$link-color: #B06048; /*#79283F;*/
 
 $main-background: url("{{ site.digurl }}images/bg-2.jpg") repeat scroll 0 0;
-$white-back: #fff; /* #FEFEFA #fbf6d9 #f9edd3 #fbf9e0 #fdfdfd*/
+$white-back: #fff; 
 
 /* drop shadows */
 $shadow-sm: 0px 2px 8px 0px rgba(0,0,0,0.3);
@@ -44,16 +44,16 @@ $c-white: white;
 
 /* widths */
 $max-width:    1250px;
-$mediumscreen:     780px; //600px
-$largescreen:      1024px; //820px
+$mediumscreen:     780px; 
+$largescreen:      1024px;
 
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
+/* Use media queries like this:
+@include media-query($on-palm) {
+     .wrapper {
+         padding-right: $spacing-unit / 2;
+         padding-left: $spacing-unit / 2;
+     }
+ } */
 @mixin media-query($device) {
     @media screen and (min-width: $device) {
         @content;
