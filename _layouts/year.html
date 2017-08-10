@@ -14,7 +14,7 @@ layout: page
 {% endif %}
 <div class="page">
 
-    <img class="year-masthead" src="{{ site.digurl }}images/years/argonaut{{year}}.jpg" alt="Argonaut {{year}}">
+    <img class="year-masthead" src="{{ site.digurl }}/images/years/argonaut{{year}}.jpg" alt="Argonaut {{year}}">
 
     <div>
         <h3 class="subpagetitle"><a class="arrow" href="{{prevyear}}" title="previous">«</a> Issues from {{year}} <a class="arrow" href="{{nextyear}}" title="next">»</a></h3> 
@@ -38,10 +38,10 @@ layout: page
                     {% for issue in issues %}
                     <tr>
                         <td class="issue-thumb">
-                            <div class="view-link"><a href="http://digital.lib.uidaho.edu/cdm/pageflip/collection/argonaut/id/{{ issue.refID }}/type/singleitem/pftype/pdf" target="_blank" title="flip viewer"><img src="{{ site.digurl }}images/thumbs/{{ issue.refID }}.jpg" alt="issue thumbnail"><p class="pageflip">view</p></a></div>
+                            <div class="view-link"><a href="{{ site.repourl }}/cdm/pageflip/collection/argonaut/id/{{ issue.refID }}/type/singleitem/pftype/pdf" target="_blank" title="flip viewer"><img src="{{ site.digurl }}/images/thumbs/{{ issue.refID }}.jpg" alt="issue thumbnail"><p class="pageflip">view</p></a></div>
                         </td>
                         <td class="issue-date" style="display:none">{{ issue.date }}</td>
-                        <td class="issue-title"><a href="http://digital.lib.uidaho.edu/cdm/ref/collection/argonaut/id/{{ issue.refID }}" target="_blank" title="database item">{{ issue.title }}</a></td>
+                        <td class="issue-title"><a href="{{ site.repourl }}/cdm/ref/collection/argonaut/id/{{ issue.refID }}" target="_blank" title="database item">{{ issue.title }}</a></td>
                         <td class="issue-subject">{{ issue.subject }}</td>
                     </tr>
                     {% endfor %}

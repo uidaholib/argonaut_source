@@ -8,7 +8,7 @@ title: Home
         <div class="news">  
 
             <div class="masthead">
-                <img src="{{ site.digurl }}images/argonaut_header.jpg" alt="The Argonaut">
+                <img src="{{ site.digurl }}/images/argonaut_header.jpg" alt="The Argonaut">
                 <div class="banner">
                     <nav> 
                         <div id="i-refresh" class="i-button">Refresh</div>
@@ -20,7 +20,7 @@ title: Home
 
             <div class="smallnav i-nav" id="navdropdown">  
                 <div class="search-sm">
-                    <form method="get" action="http://digital.lib.uidaho.edu/cdm4/results.php">
+                    <form method="get" action="{{ site.repourl }}/cdm4/results.php">
                         <input type="hidden" name="CISOOP1" value="all"></input>
                         <input type="text" name="CISOBOX1" size="23" placeholder=" Search All" class="search"></input>
                         <input type="hidden" name="CISOFIELD1" value="CISOSEARCHALL"></input>
@@ -40,7 +40,7 @@ title: Home
                 <ul>
                     <li><a class="navbutton" href="{{site.baseurl}}/about.html">About</a></li>
                     <li><a class="navbutton" href="{{site.baseurl}}/years.html">Browse Years</a></li>
-                    <li><a class="navbutton" href="http://digital.lib.uidaho.edu/cdm/search/collection/argonaut">Database</a></li>
+                    <li><a class="navbutton" href="{{ site.repourl }}/cdm/search/collection/argonaut">Database</a></li>
                     <li id="i-jumpyear">{% include jumpyear.html %}</li>
                 </ul>
             </div>

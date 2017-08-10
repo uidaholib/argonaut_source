@@ -14,8 +14,8 @@ title: Browse Years
             {% for year in site.data.argoyears %}
             
             <li>
-                <a href="years/{{ year.date }}.html">
-                <img src="{{ site.digurl }}{{ year.img }}" alt="Argonaut {{ year.date }}">
+                <a href="{{ site.baseurl }}/years/{{ year.date }}.html">
+                <img src="{{ site.digurl }}/{{ year.img }}" alt="Argonaut {{ year.date }}">
                 <p>{{ year.date }}</p>
                 </a>
             </li>
