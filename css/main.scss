@@ -6,7 +6,7 @@
 /* load font */
 @font-face {
     font-family: 'Allan';
-    src: url('fonts/allan/Allan-Bold.ttf') format('truetype');
+    src: url('fonts/allan/allan-bold.woff2') format('woff2'), url('fonts/allan/allan-bold.woff') format('woff'), url('fonts/allan/allan-bold.ttf') format('truetype');
     font-weight: bold;
 }
 
