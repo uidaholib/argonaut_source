@@ -21,7 +21,7 @@ function makeGrid(array) {
   grid.innerHTML = "<div class=\"gutter-sizer\"></div>";
   var item;
   for (i = 0; i < 12; i++) {
-      item = "<div onclick=\"yearClick(this)\" class=\"grid-item grid-" + array[i].size + "\"><div class=\"highlight\"><img class=\"himg\" src=\"https://www.lib.uidaho.edu/digital/argonaut/images/highlights/" + array[i].filename +"\" ><a href=\"https://digital.lib.uidaho.edu/cdm/ref/collection/argonaut/id/" + array[i].refID + "\" target=\"_blank\" class=\"reveal\" title=\"view item\">" + array[i].title + "</a></div></div>";
+      item = "<div onclick=\"yearClick(this)\" class=\"grid-item grid-" + array[i].size + "\"><div class=\"highlight\"><img class=\"himg\" src=\"https://www.lib.uidaho.edu/digital/argonaut/images/highlights/" + array[i].filename +"\" ><a href=\"https://digital.lib.uidaho.edu/cdm/ref/collection/argonaut/id/" + array[i].cdm-id + "\" target=\"_blank\" class=\"reveal\" title=\"view item\">" + array[i].title + "</a></div></div>";
       grid.innerHTML += item;
   }
   /* initialize Packery, metafizzy, http://packery.metafizzy.co/ */

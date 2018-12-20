@@ -1,3 +1,3 @@
 ---
 ---
-{% assign highlights = site.data.argo_highlights %}{ "highlights" : [ {% for highlight in highlights %}{% assign issue = site.data.argonaut | where: "refID",highlight.refID %}{% assign year = issue | map: "title" %}{ "refID" : "{{ highlight.refID }}", "size" : "{{ highlight.size }}", "filename" : "{{ highlight.filename }}", "title" : "{{ year }}" }{% if forloop.last == false %}, {% endif %}{% endfor %} ]}
+{% assign highlights = site.data.argo_highlights %}{ "highlights" : [ {% for highlight in highlights %}{% assign issue = site.data.argonaut | where: "cdm-id",highlight.cdm-id %}{% assign year = issue | map: "title" %}{ "cdm-id" : "{{ highlight.cdm-id }}", "size" : "{{ highlight.size }}", "filename" : "{{ highlight.filename }}", "title" : "{{ year }}" }{% if forloop.last == false %}, {% endif %}{% endfor %} ]}

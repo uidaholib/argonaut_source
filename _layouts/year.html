@@ -19,8 +19,7 @@ layout: page
     <div>
         <h3 class="subpagetitle"><a class="arrow" href="{{prevyear}}" title="previous">«</a> Issues from {{year}} <a class="arrow" href="{{nextyear}}" title="next">»</a></h3> 
     </div>
-        <!-- creates year pages at years/argonaut{{ year }}.html from data file site.data.argonaut that has fields: title,date,year,description,subject,id,refID   
-        -->
+
     <div class="columnwrapper">
         <!-- issue table: -->
         <div id="issueTable">
@@ -38,10 +37,10 @@ layout: page
                     {% for issue in issues %}
                     <tr>
                         <td class="issue-thumb">
-                            <div class="view-link"><a href="{{ site.repourl }}/utils/getfile/collection/argonaut/id/{{ issue.refID }}/filename/{{ issue.id }}.pdf" target="_blank" title="PDF download"><img src="{{ site.digurl }}/images/thumbs/{{ issue.refID }}.jpg" alt="issue thumbnail"><p class="pageflip">View</p></a></div>
+                            <div class="view-link"><a href="{% include obj/pdf.html id=issue.cdm-id filename=issue.id %}" target="_blank" title="PDF download"><img src="{{ site.digurl }}/images/thumbs/{{ issue.cdm-id }}.jpg" alt="issue thumbnail"><p class="pageflip">View</p></a></div>
                         </td>
                         <td class="issue-date" style="display:none">{{ issue.date }}</td>
-                        <td class="issue-title"><a href="{{ site.repourl }}/cdm/ref/collection/argonaut/id/{{ issue.refID }}" target="_blank" title="database item">{{ issue.title }}</a></td>
+                        <td class="issue-title"><a href="{{ site.repourl }}/cdm/ref/collection/argonaut/id/{{ issue.cdm-id }}" target="_blank" title="database item">{{ issue.title }}</a></td>
                         <td class="issue-subject">{{ issue.subject }}</td>
                     </tr>
                     {% endfor %}
@@ -53,7 +52,7 @@ layout: page
     </div>
 
 </div>
-<!-- add list.js http://www.listjs.com/ @javve -->
+
 <script src="{{ site.baseurl }}/js/list.min.js"></script>
 <script> 
     var options = {

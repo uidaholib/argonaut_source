@@ -1,0 +1,10 @@
+field,display-name,dc-map,browse-link
+title,Title,DC.title
+date,Date Created,DCTERMS.created
+description,Description,DC.description
+subject,Subjects,DC.subject,true
+id,Identifier
+type,Type,DC.type
+format original,Format Original
+format,Format
+rightsstatement,Rights
