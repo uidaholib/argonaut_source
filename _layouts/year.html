@@ -38,7 +38,7 @@ layout: page
                     {% for issue in issues %}
                     <tr>
                         <td class="issue-thumb">
-                            <div class="view-link"><a href="{{ site.repourl }}/cdm/pageflip/collection/argonaut/id/{{ issue.refID }}/type/singleitem/pftype/pdf" target="_blank" title="flip viewer"><img src="{{ site.digurl }}/images/thumbs/{{ issue.refID }}.jpg" alt="issue thumbnail"><p class="pageflip">view</p></a></div>
+                            <div class="view-link"><a href="{{ site.repourl }}/utils/getfile/collection/argonaut/id/{{ issue.refID }}/filename/{{ issue.id }}.pdf" target="_blank" title="PDF download"><img src="{{ site.digurl }}/images/thumbs/{{ issue.refID }}.jpg" alt="issue thumbnail"><p class="pageflip">View</p></a></div>
                         </td>
                         <td class="issue-date" style="display:none">{{ issue.date }}</td>
                         <td class="issue-title"><a href="{{ site.repourl }}/cdm/ref/collection/argonaut/id/{{ issue.refID }}" target="_blank" title="database item">{{ issue.title }}</a></td>
