@@ -14,12 +14,12 @@
 
 <div class="libraryheader" >
   <a class="hide-small" href="https://www.lib.uidaho.edu/">The University of Idaho Library's </a>
-  <a class="hide-medium hide-large" href="https://www.lib.uidaho.edu/">UIdaho Library's</a>
+  <a class="hide-medium hide-large" href="https://www.lib.uidaho.edu/">U of I Library's</a>
 </div>
   
 <div class="titlebar">
 
-  <a class="titlelink" href="{{ site.digurl }}/index.html">
+  <a class="titlelink" href="{{ '/' | relative_url }}">
     <ul class="title">
       <li><h1>Argonaut</h1></li>
       <li><h2>Student <br>Newspaper</h2></li>
@@ -58,13 +58,13 @@
       </div>
       
       <div class="topnav">
-        <a href="{{ site.baseurl }}/about.html">About</a>
-        <a href="{{ site.baseurl }}/years.html">Browse</a>
+        <a href="{{ '/about.html' | relative_url }}">About</a>
+        <a href="{{ '/years.html' | relative_url }}">Browse</a>
         <a href="{{ site.repourl }}/cdm/search/collection/argonaut">Database</a>
 
       </div>
 
-      {%include jumpyear.html %}
+      {% include jumpyear.html %}
       
     </div>
    
@@ -92,8 +92,8 @@
     </form>
   </div>
   <ul>
-    <li><a class="navbutton" href="{{ site.baseurl }}/about.html">About</a></li>
-    <li><a class="navbutton" href="{{ site.baseurl }}/years.html">Browse Years</a></li>
+    <li><a class="navbutton" href="{{ '/about.html' | relative_url }}">About</a></li>
+    <li><a class="navbutton" href="{{ '/years.html' | relative_url }}">Browse Years</a></li>
     <li><a class="navbutton"  href="{{ site.repourl }}/cdm/search/collection/argonaut">Database</a></li>
   </ul>
   
