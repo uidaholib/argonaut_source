@@ -1,5 +1,6 @@
 ---
 layout: page
+# creates year pages at years/argonaut{{ year }}.html from data file site.data.argonaut that has fields: title,date,year,description,subject,id,refID 
 ---
 {% assign year = page.title %}
 {% if year == '1898' %}
@@ -7,20 +8,19 @@ layout: page
 {% else %}
     {% assign prevyear = year | minus:1 | append: '.html' %}
 {% endif %}
-{% if year == '2010' %}
+{% if year == '2019' %}
     {% assign nextyear = '/years.html' | prepend: site.baseurl %}
 {% else %}
     {% assign nextyear = year | plus:1 | append: '.html' %}
 {% endif %}
 <div class="page">
 
-    <img class="year-masthead" src="{{ site.digurl }}/images/years/argonaut{{year}}.jpg" alt="Argonaut {{year}}">
+    <img class="year-masthead" src="{{ site.objects }}/years/{{ page.masthead_img }}" alt="Argonaut {{ year }}">
 
     <div>
-        <h3 class="subpagetitle"><a class="arrow" href="{{prevyear}}" title="previous">«</a> Issues from {{year}} <a class="arrow" href="{{nextyear}}" title="next">»</a></h3> 
+        <h3 class="subpagetitle"><a class="arrow" href="{{ prevyear }}" title="previous">«</a> Issues from {{ year }} <a class="arrow" href="{{ nextyear }}" title="next">»</a></h3> 
     </div>
-        <!-- creates year pages at years/argonaut{{ year }}.html from data file site.data.argonaut that has fields: title,date,year,description,subject,id,refID   
-        -->
+        
     <div class="columnwrapper">
         <!-- issue table: -->
         <div id="issueTable">
@@ -54,7 +54,7 @@ layout: page
 
 </div>
 <!-- add list.js http://www.listjs.com/ @javve -->
-<script src="{{ site.baseurl }}/js/list.min.js"></script>
+<script src="{{ '/js/list.min.js' | relative_url }}"></script>
 <script> 
     var options = {
         valueNames: [ 'issue-date', 'issue-title', 'issue-subject' ]
