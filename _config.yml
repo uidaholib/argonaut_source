@@ -8,15 +8,17 @@ title: Argonaut Digital Collection
 
 description: > 
   A digital collection of University of Idaho student newspaper, the Argonaut, from 1898 to 2010.
-# relative url
-baseurl: "/digital/argonaut"
+
 # site urls
-url: "https://www.lib.uidaho.edu" # the base hostname & protocol for your site
+url: https://www.lib.uidaho.edu 
+baseurl: /digital/argonaut
+objects: https://www.lib.uidaho.edu/digital/objects/argonaut
+
+# historic vars
 digurl: "https://www.lib.uidaho.edu/digital/argonaut"
 # urls for references outside collection
 liburl: "https://www.lib.uidaho.edu"
 repourl: "https://digital.lib.uidaho.edu"
-
 # Build settings
 markdown: kramdown
 
