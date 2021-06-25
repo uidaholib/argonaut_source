@@ -1,5 +1,11 @@
+{% assign highlights = site.data.argonaut_highlights %}
+/* add highlights */
+var highlights = [ {% for highlight in highlights %}
+  { "cdmid":"{{ highlight.cdmid }}", "size":"{{ highlight.size }}", "date":"{{ highlight.date }}", "alt":"{{ highlight.alt }}", "file":"{{ highlight.filename }}" }{% if forloop.last == false %}, {% endif %}{% endfor %} 
+];
+
 var grid = document.getElementById("grid");
-var allHighlights = [];
+
 /* Fisher-Yates shuffle https://bost.ocks.org/mike/shuffle/ */
 function shuffle(array) {
   var m = array.length, t, i;
@@ -18,10 +24,11 @@ function makeGrid(array) {
   while (grid.hasChildNodes()) {
     grid.removeChild(grid.lastChild);
   }
-  grid.innerHTML = "<div class=\"gutter-sizer\"></div>";
+  grid.innerHTML = "<div class='gutter-sizer'></div>";
   var item;
+  // cdmid,size,alt,file
   for (i = 0; i < 12; i++) {
-      item = "<div onclick=\"yearClick(this)\" class=\"grid-item grid-" + array[i].size + "\"><div class=\"highlight\"><img class=\"himg\" src=\"https://www.lib.uidaho.edu/digital/argonaut/images/highlights/" + array[i].filename +"\" ><a href=\"https://digital.lib.uidaho.edu/cdm/ref/collection/argonaut/id/" + array[i].refID + "\" target=\"_blank\" class=\"reveal\" title=\"view item\">" + array[i].title + "</a></div></div>";
+      item = "<div onclick='yearClick(this)' class='grid-item grid-" + array[i].size + "'><div class='highlight'><img class='himg' src='{{ site.objects }}/highlights_new/" + array[i].file +"' alt='" + array[i].alt + "'><a href='https://digital.lib.uidaho.edu/cdm/ref/collection/argonaut/id/" + array[i].cdmid + "' target='_blank' rel='noopener' class='reveal' title='view item'>" + array[i].date + "</a></div></div>";
       grid.innerHTML += item;
   }
   /* initialize Packery, metafizzy, http://packery.metafizzy.co/ */
@@ -35,23 +42,7 @@ function makeGrid(array) {
     pckry.layout();
   });
 }
-/* get highlights JSON file */
-function parseHighlights(xhttp) {
-  var allObjects = JSON.parse(xhttp.responseText);
-  allHighlights = allObjects.highlights;
-  makeGrid(allHighlights);
-}
-function loadHighlights(url) {
-  var xhttp;
-  xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState === 4 && this.status === 200) {
-      parseHighlights(this);
-    }
-  };
-  xhttp.open("GET", url, true);
-  xhttp.send();
-}
+
 /* click event for highlights */
 function yearClick(elmnt){
     var title = elmnt.querySelector(".reveal");
@@ -61,8 +52,10 @@ function yearClick(elmnt){
     himage.style.opacity = (himage.style.opacity === "0.4") ? "1" : "0.4";
 }
 
-loadHighlights("js/highlights.json");
+/* add highlights to page */
+makeGrid(highlights);
+
 /* add refresh button */
 document.getElementById("i-refresh").onclick = function () {
-  makeGrid(allHighlights);
+  makeGrid(highlights);
 };

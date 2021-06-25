@@ -11,12 +11,12 @@ title: Browse Years
     <div class="columnwrapper">
 
         <ul class="yearslist">
-            {% for year in site.data.argoyears %}
+            {% for year in site.data.argonaut_years %}
             
             <li>
-                <a href="{{ site.baseurl }}/years/{{ year.date }}.html">
-                <img src="{{ site.digurl }}/{{ year.img }}" alt="Argonaut {{ year.date }}">
-                <p>{{ year.date }}</p>
+                <a href="{{ '/years/' | append: year.title | append: '.html' | relative_url }}">
+                <img src="{{ site.objects }}/years/{{ year.masthead_img_sm }}" alt="Argonaut {{ year.title }}">
+                <p>{{ year.title }}</p>
                 </a>
             </li>
             
