@@ -1,6 +1,8 @@
 ---
 layout: page
-# creates year pages at years/argonaut{{ year }}.html from data file site.data.argonaut that has fields: title,date,year,description,subject,id,refID 
+# creates year pages from _data/argonaut_years
+# pulls in issue information from _data/argonaut_issues
+# fields objectid,cdmid,title,date,year,description,subject,publisher,work_type_aat,type,format_original,format,language,source,rights,rights_standardized
 ---
 {% assign year = page.title %}
 {% if year == '1898' %}
@@ -34,15 +36,18 @@ layout: page
                     </tr>
                 </thead>
                 <tbody class="list">
-                    {% assign issues = site.data.argonaut | where: "year", year %}
+                    {% assign issues = site.data.argonaut_issues | where: "year", year %}
                     {% for issue in issues %}
                     <tr>
                         <td class="issue-thumb">
-                            <div class="view-link"><a href="{{ site.repourl }}/utils/getfile/collection/argonaut/id/{{ issue.refID }}/filename/{{ issue.id }}.pdf" target="_blank" title="PDF download"><img src="{{ site.digurl }}/images/thumbs/{{ issue.refID }}.jpg" alt="issue thumbnail"><p class="pageflip">View</p></a></div>
+                            <div class="view-link"><a href="{{ site.repourl }}/utils/getfile/collection/argonaut/id/{{ issue.cdmid }}/filename/{{ issue.objectid }}.pdf" target="_blank" title="PDF download"><img src="{{ site.objects }}/thumbs/{{ issue.cdmid }}.jpg" alt="issue thumbnail"><p class="pageflip">View</p></a></div>
                         </td>
                         <td class="issue-date" style="display:none">{{ issue.date }}</td>
-                        <td class="issue-title"><a href="{{ site.repourl }}/cdm/ref/collection/argonaut/id/{{ issue.refID }}" target="_blank" title="database item">{{ issue.title }}</a></td>
-                        <td class="issue-subject">{{ issue.subject }}</td>
+                        <td class="issue-title"><a href="{{ site.repourl }}/cdm/ref/collection/argonaut/id/{{ issue.cdmid }}" target="_blank" title="database item">{{ issue.title }}</a></td>
+                        <td class="issue-subject">
+                            {% if issue.description %}{{ issue.description }}<br>{% endif %}
+                            {{ issue.subject }}
+                        </td>
                     </tr>
                     {% endfor %}
                 </tbody>
