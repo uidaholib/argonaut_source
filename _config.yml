@@ -6,13 +6,31 @@
 # Site settings
 title: Argonaut Digital Collection
 
-description: > 
-  A digital collection of University of Idaho student newspaper, the Argonaut, from 1898 to 2010.
+description: "A digital collection of University of Idaho's student newspaper, The Argonaut, containing more than 6,500 issues from 1898 to 2019."
 
 # site urls
 url: https://www.lib.uidaho.edu 
 baseurl: /digital/argonaut
+# objects location
 objects: https://www.lib.uidaho.edu/digital/objects/argonaut
+
+# location of code, the full url to your github repository
+source-code: https://github.com/uidaholib/argonaut_source
+# contentdm collection name, matches collection ID used by CDM
+cdm-collection-id: argonaut
+# CONTENTdm server url
+cdm-url: https://digital.lib.uidaho.edu
+
+keywords: University of Idaho; Moscow (Idaho)--Newspapers; University of Idaho--Newspapers; Student Newspaper, History, students, campus, alumni, sports, life, culture
+
+featured-image: https://www.lib.uidaho.edu/digital/objects/argonaut/years/argonaut1898a.jpg
+featured-image-alt: The Argonaut's first issue cover
+
+# Organization branding
+organization-name: "Digital Initiatives, University of Idaho Library"
+organization-link: https://www.lib.uidaho.edu/digital/
+organization-logo-banner: https://www.lib.uidaho.edu/media/digital/justdi_logo_sm.png
+organization-logo-nav: https://www.lib.uidaho.edu/media/digital/bannerlogo_allwhite.png
 
 # historic vars
 digurl: "https://www.lib.uidaho.edu/digital/argonaut"
