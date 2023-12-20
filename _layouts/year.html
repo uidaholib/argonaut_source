@@ -40,10 +40,10 @@ layout: page
                     {% for issue in issues %}
                     <tr>
                         <td class="issue-thumb">
-                            <div class="view-link"><a href="{{ site.repourl }}/utils/getfile/collection/argonaut/id/{{ issue.cdmid }}/filename/{{ issue.objectid }}.pdf" target="_blank" rel="noopener" title="PDF download"><img src="{{ site.objects }}/thumbs/{{ issue.cdmid }}.jpg" alt="issue thumbnail"><p class="pageflip">View</p></a></div>
+                            <div class="view-link"><a href="{{ issue.object_location }}" target="_blank" rel="noopener" title="PDF download"><img src="{{ issue.image_thumb }}" alt="issue thumbnail"><p class="pageflip">View</p></a></div>
                         </td>
                         <td class="issue-date" style="display:none">{{ issue.date }}</td>
-                        <td class="issue-title"><a href="{{ site.repourl }}/cdm/ref/collection/argonaut/id/{{ issue.cdmid }}" target="_blank" rel="noopener" title="database item">{{ issue.title }}</a></td>
+                        <td class="issue-title"><a href="{{ issue.object_location }}" target="_blank" rel="noopener" title="database item">{{ issue.title }}</a></td>
                         <td class="issue-subject">
                             {% if issue.description %}{{ issue.description }}<br>{% endif %}
                             {{ issue.subject }}

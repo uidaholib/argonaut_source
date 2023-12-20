@@ -1,7 +1,7 @@
 {% assign highlights = site.data.argonaut_highlights %}
 /* add highlights */
 var highlights = [ {% for highlight in highlights %}
-  { "cdmid":"{{ highlight.cdmid }}", "size":"{{ highlight.size }}", "date":"{{ highlight.date }}", "alt":"{{ highlight.alt }}", "file":"{{ highlight.filename }}" }{% if forloop.last == false %}, {% endif %}{% endfor %} 
+  { "oid":"{{ highlight.objectid }}", "size":"{{ highlight.size }}", "date":"{{ highlight.date }}", "alt":"{{ highlight.alt }}", "file":"{{ highlight.filename }}" }{% if forloop.last == false %}, {% endif %}{% endfor %} 
 ];
 
 var grid = document.getElementById("grid");
@@ -28,7 +28,7 @@ function makeGrid(array) {
   var item;
   // cdmid,size,alt,file
   for (i = 0; i < 12; i++) {
-      item = "<div onclick='yearClick(this)' class='grid-item grid-" + array[i].size + "'><div class='highlight'><img class='himg' src='{{ site.objects }}/highlights_new/" + array[i].file +"' alt='" + array[i].alt + "'><a href='https://digital.lib.uidaho.edu/cdm/ref/collection/argonaut/id/" + array[i].cdmid + "' target='_blank' rel='noopener' class='reveal' title='view item'>" + array[i].date + "</a></div></div>";
+      item = "<div onclick='yearClick(this)' class='grid-item grid-" + array[i].size + "'><div class='highlight'><img class='himg' src='{{ site.objects }}/highlights_new/" + array[i].file +"' alt='" + array[i].alt + "'><a href='https://objects.lib.uidaho.edu/argonaut/pdf/" + array[i].oid + ".pdf' target='_blank' rel='noopener' class='reveal' title='view item'>" + array[i].date + "</a></div></div>";
       grid.innerHTML += item;
   }
   /* initialize Packery, metafizzy, http://packery.metafizzy.co/ */
